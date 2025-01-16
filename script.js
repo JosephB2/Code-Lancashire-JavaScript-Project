@@ -43,6 +43,7 @@ function getUserDetailsFromGithub(userInput){
 
 =======
 window.addEventListener("load", function(){
+    document.getElementById('info').style.visibility = 'hidden'
     handleFormSubmit()
 })
 
@@ -50,6 +51,8 @@ function handleFormSubmit(){
     let form = document.getElementById("username-form")
     form.addEventListener("submit", function(event){
         event.preventDefault()
+        
+        
 
         // creates a form data object providing the form element
         let formData = new FormData(form)
@@ -73,23 +76,41 @@ function getUserDetailsFromGithub(userInput){
         // handling API errors        
         if(data.documentation_url == "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting") { // 
             errortext.innerHTML = "Error: API limit exceeded"
-            document.getElementById('info').style.visibility = "hidden";
+            showError(true)
+            console.log('api activated')
         }
         else if(data.login == null) {
             errortext.innerHTML = "Error: user not found"
+            showError(true)
+            console.log('undefined activated')
+
         }
         else {
             errortext.innerHTML = null
+            showError(false)
+            console.log('everythings fine')
         }
 
         usernameTag.innerHTML = data.login
         public_repos.innerHTML = data.public_repos
         followers.innerHTML = data.followers
         userimage.setAttribute("src", data.avatar_url)
+        
 
         console.log('data', data)
     })
 
+}
+
+function showError(isThereError) {
+    if (isThereError == false) {
+        document.getElementById('info').style.visibility = 'visible'
+        document.getElementById('error').style.display = 'hidden'
+    }
+    if (isThereError == true) {
+        document.getElementById('info').style.visibility = 'hidden'
+        document.getElementById('error').style.display = 'visible'
+    }
 }
 
 >>>>>>> 03230e3ec5dd631a2222e8e346b0f3463b639334
