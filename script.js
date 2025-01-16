@@ -26,15 +26,15 @@ function getUserDetailsFromGithub(userInput){
         let public_repos = document.querySelector('#public_repos')
         let followers = document.querySelector('#followers')
 
-        // handling API errors
-        if(data.login == "undefined" | data.login == null) {
-            errortext.innerHTML = "Error: user not found"
-        }
+        // handling API errors        
         if(data.documentation_url == "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting") { // 
             errortext.innerHTML = "Error: API limit exceeded"
         }
+        else if(data.login == null) {
+            errortext.innerHTML = "Error: user not found"
+        }
         else {
-            errortext.innerHTML == ""
+            errortext.innerHTML = null
         }
 
         usernameTag.innerHTML = data.login
