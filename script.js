@@ -29,6 +29,7 @@ function getUserDetailsFromGithub(userInput){
         // handling API errors        
         if(data.documentation_url == "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting") { // 
             errortext.innerHTML = "Error: API limit exceeded"
+            document.getElementById('info').style.visibility = "hidden";
         }
         else if(data.login == null) {
             errortext.innerHTML = "Error: user not found"
