@@ -42,6 +42,11 @@ function getMortgageDetails(userInput) {
     console.log("Monthly Payment:", monthlyPayment); 
     console.log("Total Payment:", totalPayment); 
     console.log("Interest Paid:", interestPaid); 
+
+    document.getElementById("monthly_payment").innerHTML = monthlyPayment;
+    document.getElementById("total_payment").innerHTML = totalPayment;
+    document.getElementById("interest_paid").innerHTML = interestPaid;
+
 };
 
 /*
