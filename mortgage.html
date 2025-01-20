@@ -3,10 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Mortgage Calculator</title>
+    <style type="text/tailwindcss">
+        .radio-container {
+            @apply flex items-center gap-4 has-[:checked]:border-blue-400 has-[:checked]:bg-blue-300 text-black has-[:checked]:text-white;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="bg-blue-100 h-screen w-screen grid place-items-center text-white">
+        <div class="max-w-md mx-auto p-6">
+            <div class="text-blue-900 text-2xl  p-2">Mortgage Calculator
+                <form action="" id="mortgage" class="flex-cols-2 items-center w-full">
+                    <span class=" text-base">Mortgage Amount</span>
+                    <input type="text" name="mortgage_amount" id=""  class="border border-white bg-blue-150 rounded-l p-1.5 w-full" />
+                
+                
+                <div class="flex space-x-4">
+                    <div class="w-1/2">
+                        <span class=" text-base mt-6">Mortgage Length</span>
+                    <input type="text" name="mortgage_length" id="" placeholder="years" class="border border-white bg-blue-150 rounded-l p-1.5 w-full" />
+                </div>
+
+                <div class="w-1/2">
+                    <span class=" text-base mt-6">Interest</span>
+                <input type="text" name="mortgage_interest" id="" placeholder="%" class="border border-white bg-blue-150 rounded-l p-1.5 w-full" />
+                </div>
+                </div>
+
+                <div class="space-y-4">
+                <div>
+                    <span class=" text-base mt-6 w-full">Mortgage Type</span>
+                <div class="flex border border-white bg-white rounded-l p-1.5 space-x-4 radio-container">
+                    <input type="radio" name="enquiry" value="request" id="" class="border border-white bg-blue-150 rounded-l p-1.5 space-x-4 text-base radio-container">
+                    <span class="text-gray-400 text-lg">Interest Only</span>
+                </div>
+            </div>
+
+                <div class="flex border border-white bg-white rounded-l p-1.5 space-x-4 radio-container">
+                    <input type="radio" name="enquiry" value="request" id="" class="border border-white bg-blue-150 rounded-l p-1.5 space-x-4 text-base radio-container">
+                    <span class="text-gray-400 text-lg">Repayment</span>
+                </div>
+            
+            <div>
+                <button class="border border-white bg-blue-300 rounded-l p-2 space-x-4 text-xl w-full text-white">Calculate Mortgage</button>
+            </div>
+        </div>
+
+
+            </form>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
     <script src="./mortgage.js"></script>
 </body>
