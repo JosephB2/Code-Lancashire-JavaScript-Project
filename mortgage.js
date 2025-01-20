@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
 });
 
 function handleFormSubmit() {
-  let form = document.getElementById("mortgage-form");
+  let form = document.getElementById("mortgage");
   form.addEventListener("submit", function (event) {
     event.preventDefault(); 
 
@@ -28,9 +28,9 @@ n is the total number of payments (mortgage term in years multiplied by 12)
 */
 
 function getMortgageDetails(userInput) {
-  let startingBalance =(userInput.startingBalance);
-  let annualInterestRate = (userInput.annualInterestRate) ;
-  let termYears = (userInput.termYears);
+  let startingBalance =(userInput.mortgage_amount);
+  let annualInterestRate = (userInput.mortgage_interest) ;
+  let termYears = (userInput.mortgage_length);
 
   let monthlyInterestRate = annualInterestRate / 100 / 12;
   let termMonths = termYears * 12;
