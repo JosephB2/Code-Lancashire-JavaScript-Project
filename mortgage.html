@@ -17,18 +17,18 @@
             <div class="text-blue-900 text-2xl  p-2">Mortgage Calculator
                 <form action="" id="mortgage" class="flex-cols-2 items-center w-full">
                     <span class=" text-base">Mortgage Amount</span>
-                    <input type="text"  placeholder="£" name="mortgage_amount" id=""  class="border border-white bg-blue-150 rounded-l p-1.5 w-full" />
+                    <input type="text"  placeholder="£" name="mortgage_amount" id=""  class="border border-white bg-blue-150 rounded p-1.5 w-full" />
                 
                 
-                <div class="flex space-x-4">
+                <div class="flex space-x-2">
                     <div class="w-1/2">
-                        <span class=" text-base mt-6">Mortgage Length</span>
-                    <input type="text" name="mortgage_length" id="" placeholder="years" class="border border-white bg-blue-150 rounded-l p-1.5 w-full text-lg" />
+                        <span class=" text-base">Mortgage Length</span>
+                    <input type="text" name="mortgage_length" id="" placeholder="years" class="border border-white bg-blue-150 rounded p-1.5 w-full text-lg" />
                 </div>
 
                 <div class="w-1/2">
-                    <span class=" text-base mt-6">Interest</span>
-                <input type="text" name="mortgage_interest" id="" placeholder="%" class="border border-white bg-blue-150 rounded-l p-1.5 w-full text-lg" />
+                    <span class=" text-base">Interest</span>
+                <input type="text" name="mortgage_interest" id="" placeholder="%" class="border border-white bg-blue-150 rounded p-1.5 w-full text-lg" />
                 </div>
                 </div>
 
@@ -55,7 +55,12 @@
             
             </div>
         </div>
-      
+        <div class="mt-6 mb-2 text-black">
+            <span>Name:</span>
+            <span id="monthly_payment"></span>
+            <span id="total_payment"></span>
+            <span id="interest_paid"></span>
+        </div>
         </form>
         
         <div></div>
