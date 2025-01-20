@@ -1,3 +1,20 @@
+window.addEventListener("load", function () {
+  handleFormSubmit();
+});
+
+function handleFormSubmit() {
+  let form = document.getElementById("mortgage-form");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+
+    let formData = new FormData(form);
+    let data = Object.fromEntries(formData.entries()); 
+
+    getMortgageDetails(data); 
+  });
+}
+
+
 /*
 Repayment Mortgage
 M = P [ i (1 + i)^n ] / [ (1 + i)^n – 1 ]
@@ -10,22 +27,22 @@ n is the total number of payments (mortgage term in years multiplied by 12)
 }
 */
 
-window.addEventListener("load", function() {
-    let startingBalance = 45000; 
-    let annualInterestRate = 3; 
-    let termYears = 10;
+function getMortgageDetails(userInput) {
+  let startingBalance =(userInput.startingBalance);
+  let annualInterestRate = (userInput.annualInterestRate) ;
+  let termYears = (userInput.termYears);
 
-    let monthlyInterestRate = annualInterestRate / 100 / 12;
-    let termMonths = termYears * 12;
+  let monthlyInterestRate = annualInterestRate / 100 / 12;
+  let termMonths = termYears * 12;
 
-    let monthlyPayment = startingBalance *  (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, termMonths)) / (Math.pow(1 + monthlyInterestRate, termMonths) - 1);
-    let totalPayment = monthlyPayment * termMonths;
-    let interestPaid = totalPayment - startingBalance;
+  let monthlyPayment = startingBalance * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, termMonths)) / (Math.pow(1 + monthlyInterestRate, termMonths) - 1);
+  let totalPayment = monthlyPayment * termMonths;
+  let interestPaid = totalPayment - startingBalance;
 
     console.log("Monthly Payment:", monthlyPayment); 
     console.log("Total Payment:", totalPayment); 
     console.log("Interest Paid:", interestPaid); 
-});
+};
 
 /*
 Interest Only Mortgage
